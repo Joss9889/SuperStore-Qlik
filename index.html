@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Prueba Qlik Embed</title>
+    <title>Portal de Saneamiento Estratégico - SuperStore</title>
 
     <script
         crossorigin="anonymous"
@@ -14,38 +14,71 @@
     </script>
 
     <style>
-        body {
-            font-family: Arial;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f4f4f4;
-        }
-        .card {
-            width: 500px;
-            height: 200px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        qlik-embed {
-            width: 100%;
-            height: 100%;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; }
+        .header { text-align: center; padding: 20px; background: #009845; color: white; border-radius: 8px; margin-bottom: 20px; }
+        .container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; margin: auto; }
+        .card { background: white; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 5px solid #009845; }
+        .full-width { grid-column: 1 / -1; }
+        .kpi-container { display: flex; gap: 15px; height: 200px; }
+        qlik-embed { width: 100%; height: 100%; }
+        h3 { margin-top: 0; color: #333; font-size: 1.1em; border-bottom: 1px solid #eee; padding-bottom: 10px; }
     </style>
 </head>
+
 <body>
 
-    <div class="card">
-        <h3>Prueba Variable Top N</h3>
+    <div class="header">
+        <h1>Simulador de Optimización de Beneficios</h1>
+        <p>Análisis de Impacto por Saneamiento de Cartera de Productos</p>
+    </div>
 
-        <qlik-embed 
-            ui="analytics/chart" 
-            app-id="2b47a0e8-3d73-4694-b0d6-69542832b541" 
-            object-id="322021e0-cc7a-4108-91f6-b495ed627210">
-        </qlik-embed>
+    <div class="container">
+
+        <!-- AQUÍ QUITAMOS LA VARIABLE -->
+        <div class="card full-width" style="height: 150px;">
+            <h3>1. Configuración de Variable</h3>
+            <p>⚠️ Control no disponible en versión embebida (extensión no compatible)</p>
+        </div>
+
+        <!-- KPI -->
+        <div class="card">
+            <h3>2. Beneficio Actual</h3>
+            <div style="height: 200px;">
+                <qlik-embed 
+                    ui="analytics/chart" 
+                    app-id="2b47a0e8-3d73-4694-b0d6-69542832b541" 
+                    object-id="04ede45a-2e29-4d47-930f-6c635ded9269">
+                </qlik-embed>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>3. Beneficio Proyectado</h3>
+            <div style="height: 200px;">
+                <qlik-embed 
+                    ui="analytics/chart" 
+                    app-id="2b47a0e8-3d73-4694-b0d6-69542832b541" 
+                    object-id="a0b8afa7-b4ff-4c8c-85b4-26f7d90a4017">
+                </qlik-embed>
+            </div>
+        </div>
+
+        <!-- GRÁFICO -->
+        <div class="card full-width">
+            <h3>4. Análisis de Productos</h3>
+            <div style="height: 400px;">
+                <qlik-embed 
+                    ui="analytics/chart" 
+                    app-id="2b47a0e8-3d73-4694-b0d6-69542832b541" 
+                    object-id="236c8ce8-43e4-406d-9b3d-ec8bb2958417">
+                </qlik-embed>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
 
     </div>
 
